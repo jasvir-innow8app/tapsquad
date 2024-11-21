@@ -4,12 +4,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Home from "../src/Home"
 import ContactUs from './Contact/contactUs';
+import RouteContainer from './routes/RouteContainer';
+import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
-    <div>
-      <Home />
-      {/* <ContactUs /> */}
-    </div>
+    <BrowserRouter>
+      <div>
+        <RouteContainer />
+
+
+      </div>
+    </BrowserRouter>
   );
 }
 

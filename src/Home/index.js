@@ -36,28 +36,18 @@ import twitter from "../../src/images/twitter-black.png";
 import tsBlack from "../../src/images/TS-black.png";
 import youtube from "../../src/images/youtube-black.png";
 import navbarIcon from "../../src/images/navbar-icon.png"
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../Navbar';
+import Footer from '../Footer/footer';
 
 const Home = () => {
+  const navigate = useNavigate();
+  const handleNavigate = (data) => {
+    navigate(`/${data}`)
+  }
   return (
     <>
-      <div className='container sticky-header'>
-        <header className='navbar'>
-          <div>
-            <img src={logo} />
-          </div>
-          <div className='nav-items'>
-            <ul className='nav-links'>
-              <li>About</li>
-              <li>Our Work</li>
-              <li>Contact</li>
-
-            </ul>
-
-            <button className='btn'>Contact us</button>
-          </div>
-          <img className='menu-icon' src={navbarIcon} />
-        </header>
-      </div >
+      <Navbar />
       <section className='main-section'>
         <div className='container'>
           <div className='main-content'>
@@ -68,7 +58,7 @@ const Home = () => {
                 <span> Business Transformation</span></p>
               <p className='para-3'>Guided by innovation, transparency, trust, and excellence, our commitment is to continuously innovate in the realm of AI, ensuring our clients remain at the forefront of technology.</p>
               <button className='read-btn'>Read More</button>
-              <button className='btn'>Contact-us</button>
+              <button className='btn' onClick={() => handleNavigate("contact")}>Contact-us</button>
             </div>
             <div className='img-content'>
               <img src={image1} />
@@ -153,7 +143,7 @@ const Home = () => {
             </div>
 
           </div>
-          <button className='view-btn'>View more</button>
+          <button className='view-btn' onClick={() => handleNavigate("team")}>View more</button>
         </div>
 
       </div>
@@ -490,9 +480,9 @@ const Home = () => {
 
         </div>
       </div>
+      <Footer />
 
-
-      <div className="container">
+      {/* <div className="container">
         <div class="email-section">
           <div class="email-container">
 
@@ -537,7 +527,7 @@ const Home = () => {
           </div>
 
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
