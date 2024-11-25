@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from "react";
 import logo from "../../src/images/tapsquad-logo.png";
 import image1 from "../../src/images/image1.png";
 import target from "../../src/images/target 1.png";
@@ -45,6 +45,13 @@ const Home = () => {
   const handleNavigate = (data) => {
     navigate(`/${data}`)
   }
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    // If the clicked index is already active, close it; otherwise, set it as active
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
   return (
     <>
       <Navbar />
@@ -68,7 +75,7 @@ const Home = () => {
       </section>
       <div className='container'>
         <div className="card-container">
-          <h1 className='card-heading'>Vision, Mission, and Value</h1>
+          <h1 className='card-heading' id="about-us">Vision, Mission, and Value</h1>
           <div className='card-items'>
             <div className='card-details'>
               <img src={target} />
@@ -258,8 +265,8 @@ const Home = () => {
 
       </div>
 
-      <div className="container">
-        <h1 className='work-heading'>Our Work</h1>
+      <div className="container" >
+        <h1 className='work-heading' id="our-Work">Our Work</h1>
         <div class="our-work-container">
           <div class="our-work-item">
             <div class="our-work-image">
@@ -333,7 +340,7 @@ const Home = () => {
           <div class="testimonial-section">
             <div class="testimonial-container">
 
-              <div class="testimonial-card-active">
+              <div class="testimonial-card">
                 <div class="testimonial-stars">
                   ★★★★★
                 </div>
@@ -447,39 +454,78 @@ const Home = () => {
         </div>
 
       </div>
-      <div className="FAQs">
-        <div className="container">
-          <h1 className='faq-h1'>Frequently Asked Questions</h1>
-          <div class="faq-section">
-            <div class="faq-container">
-
-              <div class="faq-card">
-                <p class="faq-question">How can adopting TapSquad AI solutions impact my business costs?</p>
-                <span class="faq-icon">+</span>
+      <div className="container">
+        <h2 className="faq-h2">Frequently Asked Questions</h2>
+        <div className="faq-container">
+          <div className="faq-wrapper">
+            <div className="faq-item">
+              <div className="faq-header" onClick={() => toggleFAQ(0)}>
+                <span>How can adopting TapSquad AI solutions impact my business costs?</span>
+                <span className="faq-icon">{activeIndex === 0 ? "−" : "+"}</span>
               </div>
-
-              <div class="faq-card">
-                <p class="faq-question">Can TapSquads AI solutions be applied to my industry?</p>
-                <span class="faq-icon">+</span>
+              <div
+                className={`faq-content ${activeIndex === 0 ? "open" : ""}`}
+              >
+                <p>
+                  Integrating AI streamlines and automates various tasks,
+                  significantly reducing business process costs. It not only
+                  decreases manual task completion time but also boosts process
+                  accuracy, resulting in substantial cost savings.
+                </p>
               </div>
             </div>
 
-            <div class="faq-container">
-
-              <div class="faq-card">
-                <p class="faq-question">What sets TapSquad apart from other AI development companies?</p>
-                <span class="faq-icon">+</span>
+            <div className="faq-item">
+              <div className="faq-header" onClick={() => toggleFAQ(1)}>
+                <span>Can TapSquad's AI solutions be applied to my industry?</span>
+                <span className="faq-icon">{activeIndex === 1 ? "−" : "+"}</span>
               </div>
+              <div
+                className={`faq-content ${activeIndex === 1 ? "open" : ""}`}
+              >
+                <p>
+                  TapSquad's AI solutions are tailored to meet industry-specific
+                  challenges, making them applicable across diverse sectors.
+                </p>
+              </div>
+            </div>
 
-              <div class="faq-card">
-                <p class="faq-question">How do I contact customer support?</p>
-                <span class="faq-icon">+</span>
+            <div className="faq-item">
+              <div className="faq-header" onClick={() => toggleFAQ(2)}>
+                <span>What sets TapSquad apart from other AI development companies?</span>
+                <span className="faq-icon">{activeIndex === 2 ? "−" : "+"}</span>
+              </div>
+              <div
+                className={`faq-content ${activeIndex === 2 ? "open" : ""}`}
+              >
+                <p>
+                  TapSquad delivers custom AI solutions, leveraging cutting-edge
+                  technology and a dedicated team of experts to ensure exceptional
+                  results.
+                </p>
+              </div>
+            </div>
+
+            <div className="faq-item">
+              <div className="faq-header" onClick={() => toggleFAQ(3)}>
+                <span>What payment methods do you accept?</span>
+                <span className="faq-icon">{activeIndex === 3 ? "−" : "+"}</span>
+              </div>
+              <div
+                className={`faq-content ${activeIndex === 3 ? "open" : ""}`}
+              >
+                <p>
+                  We accept Visa, Mastercard, PayPal, and other major payment
+                  methods.
+                </p>
               </div>
             </div>
           </div>
-
         </div>
       </div>
+
+
+
       <Footer />
 
       {/* <div className="container">
