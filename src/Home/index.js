@@ -59,7 +59,7 @@ const Home = () => {
         <div className='container'>
           <div className='main-content'>
             <div className='text-content'>
-              <p className='para-1'>Welcome to <span>TapSquad1</span></p>
+              <p className='para-1'>Welcome to <span>TapSquad</span></p>
               <p className='para-2'>Your Trusted Partner
                 for AI-driven
                 <span> Business Transformation</span></p>
