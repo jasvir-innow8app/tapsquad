@@ -113,7 +113,7 @@ const ContactUs = () => {
                     </div>
                     <div class="form-group">
                       <label for="field2">What is the size of your company?</label>
-                      <label style={{ fontSize: "6px" }}>(Please choose from the options – startup, small business, medium business, large enterprise)</label>
+                      <p style={{ fontSize: "10px" }}>(Please choose from the options – startup, small business, medium business, large enterprise)</p>
                       <input type="text" id="field2" />
                     </div>
                   </div>

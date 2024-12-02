@@ -6,7 +6,7 @@
 .container {
   max-width: 1300px;
   margin: 0px auto;
-  padding: 0 15px;
+  padding: 0px 25px;
 }
 .sticky-header {
   display: flex;
@@ -382,7 +382,7 @@
   gap: 45px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -739,12 +739,13 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   overflow: hidden;
-  min-width: 300px; /* Ensure a minimum width for items */
+
   box-shadow: 0px 0px 8px -4px rgba(0, 0, 0, 0.75);
+  padding: 12px;
 }
 
 .faq-header {
-  font-size: 18px;
+  font-size: 23px;
   color: #170f49;
   display: flex;
   justify-content: space-between;
@@ -766,7 +767,7 @@
   overflow: hidden;
   padding: 0 40px;
   background-color: #fff;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 1.6;
   color: #6f6c90;
   transition: max-height 0.3s ease, padding 0.3s ease;
@@ -777,11 +778,17 @@
   padding: 10px 40px; /* Restore padding when open */
 }
 
-/* @media (max-width: 767px) {
+@media (max-width: 767px) {
   .faq-item {
-    flex: 1 1 100%; 
+    flex: 1 1 100%;
   }
-} */
+  .faq-header {
+    font-size: 18px;
+  }
+  .faq-content {
+    font-size: 16px;
+  }
+}
 
 .email-section {
   background-color: #000;
@@ -811,7 +818,7 @@
 .email-input-container {
   display: flex;
   align-items: center;
-  background-color: #fff;
+  /* background-color: #fff; */
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
@@ -821,8 +828,10 @@
 .email-input {
   border: none;
   outline: none;
-  padding: 20px 50px;
-  flex: 1;
+  background: white;
+  height: 55px;
+  padding: 0px 16px;
+  margin: 0;
   font-size: 14px;
   color: #333;
 }
@@ -836,9 +845,8 @@
   cursor: pointer;
   font-size: 14px;
   font-weight: bold;
-  border-radius: 4px;
+  border-radius: 8px;
 }
-
 @media (max-width: 768px) {
   .email-container {
     flex-direction: column;
@@ -909,11 +917,38 @@
     justify-content: space-between;
   }
   .nav-items {
-    display: none;
-  }
-  .menu-icon {
-    display: block;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    gap: 20px;
+    width: 95%;
+    left: 0;
+  }
+  .nav-item.open .nav-items {
+    display: block !important; /* Show when menu is open */
+  }
+
+  .nav-links {
+    flex-direction: column; /* Stack links vertically */
+    gap: 20px;
+    padding: 0;
+  }
+
+  .btn {
+    align-self: center;
+    padding: 10px 20px;
+    margin-top: 10px;
+  }
+
+  .menu-icon {
+    margin-right: 30px;
+    display: block; /* Show the menu icon */
   }
   .card-details {
     max-width: 40%;
@@ -932,14 +967,14 @@
     width: 84%;
   }
   .email-input-container {
-    padding: px;
+    /* padding: px; */
     max-width: 61%;
   }
   .submit-button {
     padding: 20px 50px;
   }
   .faq-container {
-    width: 50%;
+    width: 100%;
   }
 
   .faq-question {
@@ -958,13 +993,13 @@
     gap: 15px;
   }
 
-  .nav-items {
+  /* .nav-items {
     flex-direction: column;
     gap: 15px;
     width: 100%;
     text-align: left;
     display: none;
-  }
+  } */
 
   .main-content {
     flex-direction: column;
@@ -988,7 +1023,7 @@
 
   .btn,
   .read-btn {
-    padding: 19px 40px;
+    padding: 12px 17;
     font-size: 18px;
     margin: 10px auto;
     gap: 10px;
@@ -1074,7 +1109,7 @@
     width: 70%;
   }
   .service-para {
-    font-size: 17px;
+    font-size: 15px;
   }
   .team-cards {
     display: flex;
@@ -1144,7 +1179,7 @@
     max-width: 100%;
   }
   .submit-button {
-    padding: 10px 20px;
+    padding: 17px 20px;
   }
   .social-media p {
     font-size: 13px;
@@ -1154,10 +1189,10 @@
     height: 15px;
   }
 
-  .email-input-container {
-    flex-direction: column; /* Stack input and button */
-    width: 100%; /* Ensure container takes full width */
-  }
+  /* .email-input-container {
+    flex-direction: column;
+    width: 100%; 
+  } */
 
   .email-input {
     width: 100%; /* Input takes full width */
@@ -1168,5 +1203,11 @@
     width: 100%; /* Button takes full width */
     margin: 0; /* Remove additional margin */
     width: 100%; /* Full width for the button */
+  }
+  .card-details {
+    width: 100%;
+  }
+  .testimonial-card {
+    width: 80%;
   }
 }
